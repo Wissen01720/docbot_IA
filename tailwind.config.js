@@ -1,7 +1,8 @@
-// filepath: /tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}", // Ajusta esta ruta según la estructura de tu proyecto
+  ],
   theme: {
     extend: {},
   },

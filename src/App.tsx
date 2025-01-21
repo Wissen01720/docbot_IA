@@ -52,21 +52,25 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleStart = () => {
+    window.location.href = "https://t.me/GuiaDiagonosticaIABot";
+  };
+
   const features = [
     {
       icon: Star,
-      title: "Precisión",
-      description: "Análisis detallado de síntomas",
+      title: "Precision",
+      description: "Detailed symptom analysis",
     },
     {
       icon: Shield,
-      title: "Seguridad",
-      description: "Datos protegidos y encriptados",
+      title: "Security",
+      description: "Protected and encrypted data",
     },
     {
       icon: Zap,
-      title: "Rapidez",
-      description: "Respuestas instantáneas 24/7",
+      title: "Speed",
+      description: "24/7 instant responses",
     },
   ];
 
@@ -90,11 +94,12 @@ function App() {
               <span className="font-bold text-xl text-gray-900">MediAI</span>
             </motion.div>
             <motion.button
+              onClick={handleStart}
               className="bg-blue-600 text-white px-4 py-2 rounded-full flex items-center hover:bg-blue-700 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Iniciar <ChevronRight className="ml-1 w-4 h-4" />
+              Start <ChevronRight className="ml-1 w-4 h-4" />
             </motion.button>
           </div>
         </div>
@@ -116,24 +121,24 @@ function App() {
             <Brain className="w-20 h-20 text-blue-600" />
           </motion.div>
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-            Diagnóstico Médico
+            AI-Assisted
             <span className="bg-gradient-to-r from-blue-600 to-cyan-500 text-transparent bg-clip-text">
               {" "}
-              Asistido por IA
+              Medical Diagnosis
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-            Acceso a soporte médico inteligente a través de un chatbot de
-            Telegram, llevando atención médica a comunidades desatendidas.
+            Access intelligent medical support through a Telegram chatbot,
+            bringing healthcare to underserved communities.
           </p>
-          <motion.a
-            href="#"
+          <motion.button
+            onClick={handleStart}
             className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Comenzar ahora <ArrowRight className="ml-2 w-5 h-5" />
-          </motion.a>
+            Start Now <ArrowRight className="ml-2 w-5 h-5" />
+          </motion.button>
         </motion.div>
       </header>
 
@@ -165,7 +170,7 @@ function App() {
         <div className="container mx-auto px-4">
           <FadeInWhenVisible>
             <h2 className="text-4xl font-bold text-center mb-16">
-              ¿Cómo Funciona?
+              How It Works
             </h2>
           </FadeInWhenVisible>
           <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
@@ -181,12 +186,10 @@ function App() {
                 >
                   <MessageCircle className="w-10 h-10 text-blue-600" />
                 </motion.div>
-                <h3 className="text-2xl font-bold mb-4">
-                  Interactúa con el Chatbot
-                </h3>
+                <h3 className="text-2xl font-bold mb-4">Chat with the Bot</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Describe tus síntomas al chatbot de Telegram de manera natural
-                  y sencilla.
+                  Describe your symptoms to the Telegram chatbot naturally and
+                  easily.
                 </p>
               </motion.div>
             </FadeInWhenVisible>
@@ -203,10 +206,10 @@ function App() {
                 >
                   <Bot className="w-10 h-10 text-blue-600" />
                 </motion.div>
-                <h3 className="text-2xl font-bold mb-4">Análisis IA</h3>
+                <h3 className="text-2xl font-bold mb-4">AI Analysis</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Nuestro sistema analiza la información y genera
-                  recomendaciones personalizadas.
+                  Our system analyzes the information and generates personalized
+                  recommendations.
                 </p>
               </motion.div>
             </FadeInWhenVisible>
@@ -223,10 +226,10 @@ function App() {
                 >
                   <Activity className="w-10 h-10 text-blue-600" />
                 </motion.div>
-                <h3 className="text-2xl font-bold mb-4">Recibe Orientación</h3>
+                <h3 className="text-2xl font-bold mb-4">Get Guidance</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Obtén recomendaciones médicas preliminares y siguientes pasos
-                  a seguir.
+                  Receive preliminary medical recommendations and next steps to
+                  follow.
                 </p>
               </motion.div>
             </FadeInWhenVisible>
@@ -240,7 +243,7 @@ function App() {
           <div className="max-w-6xl mx-auto">
             <FadeInWhenVisible>
               <h2 className="text-4xl font-bold text-center mb-16">
-                Impacto Social
+                Social Impact
               </h2>
             </FadeInWhenVisible>
             <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -266,11 +269,11 @@ function App() {
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold mb-3">
-                          Acceso Universal
+                          Universal Access
                         </h3>
                         <p className="text-gray-600 leading-relaxed">
-                          Llevamos atención médica preliminar a comunidades con
-                          acceso limitado a servicios de salud.
+                          We bring preliminary medical care to communities with
+                          limited access to healthcare services.
                         </p>
                       </div>
                     </div>
@@ -288,11 +291,11 @@ function App() {
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold mb-3">
-                          Mejora Continua
+                          Continuous Improvement
                         </h3>
                         <p className="text-gray-600 leading-relaxed">
-                          El sistema aprende y mejora constantemente gracias al
-                          feedback de los usuarios y profesionales médicos.
+                          The system continuously learns and improves through
+                          user and medical professional feedback.
                         </p>
                       </div>
                     </div>
@@ -304,12 +307,81 @@ function App() {
         </div>
       </section>
 
+{/* How to Use Section */}
+<section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+        <div className="container mx-auto px-4">
+          <FadeInWhenVisible>
+            <h2 className="text-4xl font-bold text-center mb-16">
+              How to Use
+            </h2>
+          </FadeInWhenVisible>
+          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            <FadeInWhenVisible>
+              <motion.div
+                className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+                whileHover={{ scale: 1.03 }}
+              >
+                <motion.div
+                  className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 1 }}
+                >
+                  <MessageCircle className="w-10 h-10 text-blue-600" />
+                </motion.div>
+                <h3 className="text-2xl font-bold mb-4">Step 1: Start Chat</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Click on the "Start" button to open the Telegram chatbot.
+                </p>
+              </motion.div>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible>
+              <motion.div
+                className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+                whileHover={{ scale: 1.03 }}
+              >
+                <motion.div
+                  className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 1 }}
+                >
+                  <Bot className="w-10 h-10 text-blue-600" />
+                </motion.div>
+                <h3 className="text-2xl font-bold mb-4">Step 2: Describe Symptoms</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Describe your symptoms to the chatbot in a natural and easy way.
+                </p>
+              </motion.div>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible>
+              <motion.div
+                className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+                whileHover={{ scale: 1.03 }}
+              >
+                <motion.div
+                  className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 1 }}
+                >
+                  <Activity className="w-10 h-10 text-blue-600" />
+                </motion.div>
+                <h3 className="text-2xl font-bold mb-4">Step 3: Get Recommendations</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Receive preliminary medical recommendations and next steps to follow.
+                </p>
+              </motion.div>
+            </FadeInWhenVisible>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
         <div className="container mx-auto px-4">
           <FadeInWhenVisible>
             <h2 className="text-4xl font-bold text-center mb-16">
-              Testimonios
+              Testimonials
             </h2>
           </FadeInWhenVisible>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -327,16 +399,16 @@ function App() {
                   ))}
                 </div>
                 <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                  "El chatbot me ayudó a entender mis síntomas y me guió sobre
-                  cuándo era necesario buscar atención médica urgente."
+                  "The chatbot helped me understand my symptoms and guided me on
+                  when it was necessary to seek urgent medical attention."
                 </p>
                 <div className="flex items-center">
                   <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center">
                     <span className="text-blue-600 font-bold text-xl">MA</span>
                   </div>
                   <div className="ml-4">
-                    <p className="font-bold text-lg">María A.</p>
-                    <p className="text-gray-500">Usuario</p>
+                    <p className="font-bold text-lg">Mary A.</p>
+                    <p className="text-gray-500">User</p>
                   </div>
                 </div>
               </motion.div>
@@ -356,17 +428,16 @@ function App() {
                   ))}
                 </div>
                 <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                  "Una herramienta invaluable para comunidades donde el acceso a
-                  médicos es limitado. Ayuda a tomar mejores decisiones sobre la
-                  salud."
+                  "An invaluable tool for communities where access to doctors is
+                  limited. It helps make better decisions about health."
                 </p>
                 <div className="flex items-center">
                   <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center">
                     <span className="text-blue-600 font-bold text-xl">JR</span>
                   </div>
                   <div className="ml-4">
-                    <p className="font-bold text-lg">Juan R.</p>
-                    <p className="text-gray-500">Líder Comunitario</p>
+                    <p className="font-bold text-lg">John R.</p>
+                    <p className="text-gray-500">Community Leader</p>
                   </div>
                 </div>
               </motion.div>
@@ -386,8 +457,8 @@ function App() {
           >
             <Brain className="w-12 h-12 text-blue-600 mx-auto mb-4" />
             <p className="text-gray-600 mb-4">
-              © 2024 Plataforma de Diagnóstico Médico Asistido por IA. Todos los
-              derechos reservados.
+              © 2025 AI-Assisted Medical Diagnosis Platform. All rights
+              reserved.
             </p>
             <div className="flex justify-center space-x-6">
               <motion.a
@@ -395,21 +466,21 @@ function App() {
                 className="text-gray-600 hover:text-blue-600 transition-colors"
                 whileHover={{ scale: 1.1 }}
               >
-                Términos
+                Terms
               </motion.a>
               <motion.a
                 href="#"
                 className="text-gray-600 hover:text-blue-600 transition-colors"
                 whileHover={{ scale: 1.1 }}
               >
-                Privacidad
+                Privacy
               </motion.a>
               <motion.a
                 href="#"
                 className="text-gray-600 hover:text-blue-600 transition-colors"
                 whileHover={{ scale: 1.1 }}
               >
-                Contacto
+                Contact
               </motion.a>
             </div>
           </motion.div>
