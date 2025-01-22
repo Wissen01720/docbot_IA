@@ -1,50 +1,61 @@
-# React + TypeScript + Vite
+Médico in Telegram
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is an interactive chatbot developed in Python, using the `python-telegram-bot` library to interact with users on Telegram. The bot specializes in collecting symptoms, providing preliminary diagnoses, and suggesting treatments, all while recording interactions in a Snowflake database.
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Python 3.7 or higher
+- Necessary libraries:
+  - `python-telegram-bot`
+  - `snowflake-connector-python`
+  - `json`
+  - `asyncio`
+  - `datetime`
+  - `translations` (local file with translations)
 
-## Expanding the ESLint configuration
+Install the required libraries using `pip`:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+pip install python-telegram-bot snowflake-connector-python
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Snowflake Configuration
+The bot connects to a Snowflake database to store interaction data with users. Ensure that you have the necessary credentials (username, password, account, warehouse, database, and schema). These credentials are configured in the code of the `save_interaction_data` and `get_diagnosis` functions.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Features
+Login and language selection
+The bot allows users to start a conversation using the `/start` command and select their preferred language (Spanish or English).
+Symptom registration
+The bot guides the user through a series of questions to gather information about their symptoms. The symptoms are stored and used to generate a preliminary diagnosis.
+Diagnosis
+Based on the symptoms reported by the user, the bot queries a diagnostic model (using Snowflake) and provides recommendations on preliminary diagnoses, home treatments, and when to seek medical attention.
+User satisfaction
+At the end of the session, the bot asks the user if they are satisfied with the experience and stores this information in the database.
+Inactivity
+If the user remains inactive for more than 30 minutes, the bot will delete their session data.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Project files and structure
+
+/chatbot
+├── bot.py                # Main bot code
+├── translations.py       # Translations for different languages
+└── requirements.txt      # File for Python dependencies
+
+Usage
+Start the bot on Telegram by sending the `/start` command.
+Select your preferred language (Spanish or English).
+The bot will guide you to report your symptoms.
+After submitting the symptoms, the bot will provide a preliminary diagnosis and suggestions.
+Finally, the bot will ask you if you are satisfied with the experience.
+Contributing
+Fork the repository.
+Create a new branch (git checkout -b new-feature).
+Make your changes.
+Commit your changes (git commit -am 'Add new functionality').
+Push to your branch (git push origin new-feature).
+Create a new Pull Request.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Daniela Moreno and Edgard Patiño
