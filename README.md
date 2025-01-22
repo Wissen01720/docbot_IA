@@ -1,27 +1,27 @@
-# Médico en Telegram
+# Médico in Telegram
 
-Se trata de un chatbot interactivo desarrollado en **Python**, que utiliza la biblioteca `python-telegram-bot` para interactuar con los usuarios en Telegram.  
-El bot se especializa en:
-- Recopilar síntomas.
-- Proporcionar diagnósticos preliminares.
-- Sugerir tratamientos.  
+This is an interactive chatbot developed in **Python**, using the `python-telegram-bot` library to interact with users on Telegram.  
+The bot specializes in:
+- Collecting symptoms.
+- Providing preliminary diagnoses.
+- Suggesting treatments.  
 
-Además, registra las interacciones en una base de datos de **Snowflake**.
+Additionally, it records interactions in a **Snowflake** database.
 
 ---
 
-## Requisitos
+## Requirements
 
-- **Python** 3.7 o superior.
-- Bibliotecas necesarias:
+- **Python** 3.7 or higher.
+- Required libraries:
   - `python-telegram-bot`
   - `snowflake-connector-python`
   - `json`
   - `asyncio`
   - `datetime`
-  - `translations` (archivo local con traducciones).
+  - `translations` (local file for translations).
 
-Instale las bibliotecas necesarias mediante `pip`:
+Install the required libraries via `pip`:
 
 ```bash
 pip install python-telegram-bot snowflake-connector-python
@@ -29,98 +29,99 @@ pip install python-telegram-bot snowflake-connector-python
 
 ---
 
-## Configuración de Snowflake
+## Snowflake Configuration
 
-El bot se conecta a una base de datos de Snowflake para almacenar datos de interacción con los usuarios. Asegúrese de que tiene las credenciales necesarias:
-- Nombre de usuario.
-- Contraseña.
-- Cuenta.
-- Almacén.
-- Base de datos.
-- Esquema.
+The bot connects to a Snowflake database to store user interaction data. Ensure you have the necessary credentials:
+- Username.
+- Password.
+- Account.
+- Warehouse.
+- Database.
+- Schema.
 
-Estas credenciales se configuran en las funciones `save_interaction_data` y `get_diagnosis`.
-
----
-
-## Funcionalidades
-
-### Inicio de sesión y selección de idioma
-El bot permite a los usuarios iniciar una conversación usando el comando `/start` y seleccionar su idioma preferido (español o inglés).
-
-### Registro de síntomas
-El bot guía al usuario a través de una serie de preguntas para recopilar información sobre sus síntomas. Estos se almacenan y se utilizan para generar un diagnóstico preliminar.
-
-### Diagnóstico
-En función de los síntomas informados, el bot:
-- Consulta un modelo de diagnóstico mediante Snowflake.
-- Proporciona recomendaciones sobre diagnósticos preliminares.
-- Sugiere tratamientos en el hogar.
-- Indica cuándo buscar atención médica.
-
-### Satisfacción del usuario
-Al final de la sesión, el bot pregunta al usuario si está satisfecho con la experiencia y almacena esta información en la base de datos.
-
-### Inactividad
-Si el usuario permanece inactivo durante más de 30 minutos, el bot eliminará sus datos de sesión.
+These credentials are configured in the `save_interaction_data` and `get_diagnosis` functions.
 
 ---
 
-## Archivos y estructura del proyecto
+## Features
+
+### Login and Language Selection
+The bot allows users to start a conversation using the `/start` command and select their preferred language (English or Spanish).
+
+### Symptom Logging
+The bot guides users through a series of questions to collect information about their symptoms. These are stored and used to generate a preliminary diagnosis.
+
+### Diagnosis
+Based on the reported symptoms, the bot:
+- Queries a diagnosis model using Snowflake.
+- Provides recommendations on preliminary diagnoses.
+- Suggests home treatments.
+- Indicates when to seek medical attention.
+
+### User Satisfaction
+At the end of the session, the bot asks users if they are satisfied with the experience and stores this information in the database.
+
+### Inactivity
+If the user remains inactive for more than 30 minutes, the bot will delete their session data.
+
+---
+
+## Project Files and Structure
 
 ```plaintext
 /chatbot
-├── bot.py           # Código principal del bot
-├── translations.py  # Traducciones para diferentes idiomas
-requirements.txt     # Archivo para dependencias de Python
+├── bot.py           # Main bot code
+├── translations.py  # Translations for different languages
+requirements.txt     # File for Python dependencies
 ```
 
 ---
 
-## Uso
+## Usage
 
-1. Inicie el bot en Telegram enviando el comando `/start`.
-2. Seleccione su idioma preferido (español o inglés).
-3. El bot le guiará para informar de sus síntomas.
-4. Después de enviar los síntomas, el bot proporcionará:
-   - Un diagnóstico preliminar.
-   - Sugerencias de tratamiento.
-5. Finalmente, el bot le preguntará si está satisfecho con la experiencia.
+1. Start the bot on Telegram by sending the `/start` command.
+2. Select your preferred language (English or Spanish).
+3. The bot will guide you to report your symptoms.
+4. After sending the symptoms, the bot will provide:
+   - A preliminary diagnosis.
+   - Treatment suggestions.
+5. Finally, the bot will ask if you are satisfied with the experience.
 
 ---
 
-## Contribuyendo
+## Contributing
 
-1. Bifurque el repositorio.
-2. Cree una nueva rama:
+1. Fork the repository.
+2. Create a new branch:
 
    ```bash
    git checkout -b new-feature
    ```
 
-3. Realice los cambios.
-4. Confirme sus cambios:
+3. Make your changes.
+4. Commit your changes:
 
    ```bash
-   git commit -am 'Añadir nueva funcionalidad'
+   git commit -am 'Add new feature'
    ```
 
-5. Empuje a su rama:
+5. Push to your branch:
 
    ```bash
    git push origin new-feature
    ```
 
-6. Cree una nueva solicitud de incorporación de cambios.
+6. Create a new pull request.
 
 ---
 
-## Licencia
+## License
 
-Este proyecto está licenciado bajo la Licencia MIT. Consulte el archivo `LICENSE` para más detalles.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ---
 
-**Autores:**  
-Daniela Moreno y Edgard Patiño
+**Authors:**  
+Daniela Moreno and Edgard Patiño
+
 
