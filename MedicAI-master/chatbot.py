@@ -17,15 +17,20 @@ def obtener_respuesta(idioma, clave, **kwargs):
     else:
         return "Sorry, I can't detect your language."
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Carga las variables del archivo .env
+
 def save_interaction_data(data):
     try:
         conn = snowflake.connector.connect(
-            user='DANIMORENOCR',
-            password='@DANIjuli0110',
-            account='wbkzjad-meb03147',
-            warehouse='chatbot_wh',
-            database='prueba',
-            schema='PUBLIC'
+            user=os.getenv('SNOWFLAKE_USER'),
+            password=os.getenv('SNOWFLAKE_PASSWORD'),
+            account=os.getenv('SNOWFLAKE_ACCOUNT'),
+            warehouse=os.getenv('SNOWFLAKE_WAREHOUSE'),
+            database=os.getenv('SNOWFLAKE_DATABASE'),
+            schema=os.getenv('SNOWFLAKE_SCHEMA')
         )
         cursor = conn.cursor()
         
@@ -56,12 +61,12 @@ def save_interaction_data(data):
 def get_diagnosis(sintomas, idioma):
     try:
         conn = snowflake.connector.connect(
-            user='DANIMORENOCR',
-            password='@DANIjuli0110',
-            account='wbkzjad-meb03147',
-            warehouse='chatbot_wh',
-            database='prueba',
-            schema='PUBLIC'
+            user=os.getenv('SNOWFLAKE_USER'),
+            password=os.getenv('SNOWFLAKE_PASSWORD'),
+            account=os.getenv('SNOWFLAKE_ACCOUNT'),
+            warehouse=os.getenv('SNOWFLAKE_WAREHOUSE'),
+            database=os.getenv('SNOWFLAKE_DATABASE'),
+            schema=os.getenv('SNOWFLAKE_SCHEMA')
         )
         cursor = conn.cursor()
 
@@ -285,7 +290,8 @@ async def handle_satisfaction(update: Update, context):
 
 # Crear y añadir manejadores de comandos
 def main():
-    application = Application.builder().token("7572018407:AAGfi5W4x7ytTK2Rlp5iFH8dcMWlqMYTduI").build()
+    token=os.getenv('TELEGRAM_TOKEN')
+    application = Application.builder().token(token).build()
 
     # Comandos y mensajes
     application.add_handler(CommandHandler("start", start))
