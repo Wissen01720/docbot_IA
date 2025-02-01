@@ -114,25 +114,6 @@ const FAQComponent: React.FC = () => {
             </FadeInWhenVisible>
           ))}
         </div>
-
-        {/* Call to Action */}
-        <FadeInWhenVisible>
-          <div className="text-center mt-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Still have questions?
-            </h2>
-            <p className="text-gray-600 mb-8">
-              Contact us for more information or to provide feedback.
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors"
-            >
-              Contact Us
-            </motion.button>
-          </div>
-        </FadeInWhenVisible>
       </div>
     </div>
   );

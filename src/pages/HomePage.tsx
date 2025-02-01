@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
   }, []);
 
   const handleStart = () => {
-    window.location.href = "https://t.me/GuiaDiagonosticaIABot";
+    window.location.href = "https://t.me/PrediagnosisAI_bot";
   };
 
   return (
